@@ -5,6 +5,8 @@ var app = express();
 
 app.use("/", require("./routes.js"));
 
+require("./models");
+
 mongoose.connect(process.env.DbUrl || "moongodb://localhost/DankDrop", function(){
   console.log("Connected to DB");
 });
