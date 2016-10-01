@@ -21,4 +21,8 @@ var userSchema = new mongoose.Schema({
   }
 });
 
+userSchema.methods.checkPassword = function(password){
+	return this.password == password;
+}
+
 module.exports = mongoose.model('User', userSchema);
