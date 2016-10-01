@@ -24,10 +24,8 @@ module.exports = function(req, res) {
     newUser.save(function(err, returnedUser){
         if (err){
             res.json(err);
-            res.end();
         } else {
             res.json(returnedUser);
-            res.end();
         }
     });
 }
