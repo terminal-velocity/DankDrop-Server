@@ -1,5 +1,4 @@
 module.exports = function(req, res) {
-
     var mongoose = require("mongoose");
 
     var User = mongoose.model("User");
