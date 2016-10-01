@@ -10,15 +10,15 @@ var userSchema = new mongoose.Schema({
 		type: String
 	},
 	password:{
-		type:String
+		type: String
 	},
-    memesIds: {
-        type: [String]
-    }
-    created: {
-        type: Date,
-        default: Date.now
-    }
+  memesIds: {
+      type: [String]
+  },
+  created: {
+      type: Date,
+      default: Date.now
+  }
 });
 
 module.exports = mongoose.model('User', userSchema);
