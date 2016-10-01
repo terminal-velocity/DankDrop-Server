@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/terminal-velocity/DankDrop-Server/issues"
   },
-  "homepage": "https://github.com/terminal-velocity/DankDrop-Server#readme"
+  "homepage": "https://github.com/terminal-velocity/DankDrop-Server#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "mongoose": "^4.6.2"
+  }
 }
