@@ -1,11 +1,4 @@
 var mongoose = require('mongoose')
-var crypto = require('crypto');
-
-var config = {
-  hashBytes: 32,
-  saltBytes: 16,
-  iterations: 872791
-};
 
 var userSchema = new mongoose.Schema({
 	username: {
@@ -17,9 +10,11 @@ var userSchema = new mongoose.Schema({
 		type: String
 	},
 	password:{
-		type:String,
-		bcrypt: true
+		type:String
 	},
+    memesIds: {
+        type: [String]
+    }
     created: {
         type: Date,
         default: Date.now
