@@ -5,8 +5,9 @@ var router = express.Router();
 // User routes
 router.post("/api/user", require("./routes/api/user/post.js"));
 
-//dropPoints routes
-router.post("/api/dropPoints/by-uuid/:id", require("./routes/api/dropPoints/by-uuid/get.js"));
+// DropPoint routes
+router.get("/api/dropPoints/by-uuid/:id", require("./routes/api/dropPoints/by-uuid/get.js"));
+router.post("/api/dropPoints/", require("./routes/api/dropPoints/post.js"));
 
 router.use("client", express.static("frontend/"));
 
