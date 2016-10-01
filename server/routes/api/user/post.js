@@ -1,6 +1,7 @@
 module.exports = function(req, res) {
+    var mongoose = require("mongoose");
 
-    var User = new require('../../../../models/user');
+    var User = mongoose.model("User");
 
     var username = req.body.username || '';
     var email = req.body.email || '';
