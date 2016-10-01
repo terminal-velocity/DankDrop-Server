@@ -10,6 +10,7 @@ module.exports = function(req, res, next){
   }, function(err, user){
     if(user){
       if(user.checkPassword(authdetails.pass)){
+        req.user = user;
         next();
       }
       else{
