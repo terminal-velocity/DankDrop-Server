@@ -8,11 +8,20 @@ module.exports = function(req, res, next){
   user.findOne({
     username: authdetails.name
   }, function(err, user){
-    if(user.checkPassword(authdetails.pass)){
-      next();
+    if(user){
+      if(user.checkPassword(authdetails.pass)){
+        next();
+      }
+      else{
+        res.status(401).json({
+          "message": "Invalid password"
+        });
+      }
     }
     else{
-      res.sendStatus(401);
+      res.status(401).json({
+        "message": "Invalid username"
+      });
     }
   });
 }
