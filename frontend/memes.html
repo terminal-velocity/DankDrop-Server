@@ -30,23 +30,41 @@
 
     </main>
     <script>
-    window.onload = function() {
-        var mainElem = document.getElementsByTagName("main")[0];
-        $.get("/api/memes", function(memes){
-            var len = memes.length;
-            while(len--){
-                mainElem.innerHTML+= '<div class="card">'+
-                                     '<div class="card-image">'+
-                                     '<img src="/api/meme/' + memes[len]._id+'/img" />'+
-                                     '</div>' +
-                                     '<div class="card-action">'+
-                                     '<span class="card-title">'+ memes[len].name + '</span>' +
-                                     '<a href="#">De1337 m3m3</a>'+
-                                     '</div>'+
-                                     '</div>'
+    function loadMemes(){
+      var mainElem = document.getElementsByTagName("main")[0];
+      mainElem.innerHTML = "";
+      $.get("/api/memes", function(memes){
+          var len = memes.length;
+          while(len--){
+              mainElem.innerHTML+= '<div class="card" data-id="' + memes[len]._id + '">'+
+                                   '<div class="card-image">'+
+                                   '<img src="/api/meme/' + memes[len]._id+'/img" />'+
+                                   '</div>' +
+                                   '<div class="card-action">'+
+                                   '<span class="card-title">'+ memes[len].name + '</span>' +
+                                   '<a href="#" onclick="deleteMeme(this)">De1337 m3m3</a>'+
+                                   '</div>'+
+                                   '</div>'
 
-            }
-        });
+          }
+      });
+    }
+
+    function deleteMeme(elem){
+      var id = $(elem).parent().parent().data("id");
+      $.ajax({
+        url: "/api/meme/" + id + "/",
+        type: "DELETE",
+        success: function(){
+          $(elem).parent().parent().slideUp(function(){
+            $(elem).parent().parent().remove();
+          });
+        }
+      });
+    }
+
+    window.onload = function() {
+      loadMemes();
     }
     </script>
 </body>
