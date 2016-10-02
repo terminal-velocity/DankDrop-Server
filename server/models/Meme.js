@@ -1,15 +1,5 @@
 var mongoose = require('mongoose')
 
-var voteSchema = new mongoose.Schema({
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User"
-  },
-  rating: {
-    type: Number
-  }
-});
-
 var memeSchema = new mongoose.Schema({
   img: {
     data: {
@@ -22,11 +12,18 @@ var memeSchema = new mongoose.Schema({
   name: {
     type: String
   },
-  votes: [voteSchema],
+  votes: [Number],
+  computedScore: Number,
   dropPoint: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "DropPoint"
   }
+});
+
+memeSchema
+.virtual('votes.average')
+.get(function () {
+  return this.votes.reduce(function(a, b){return a + b}) / this.votes.length;
 });
 
 module.exports = mongoose.model("Meme", memeSchema);

@@ -5,5 +5,5 @@ module.exports = function(req, res){
     _id: req.params.id
   }, function(err, meme){
     res.type(meme.img.mime).send(meme.img.data);
-  })
+  });
 }
