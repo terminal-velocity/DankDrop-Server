@@ -30,26 +30,44 @@
       <ul class="collection with-header">
         <li class="collection-header"><h4>Meme Locations</h4></li>
       </ul>
-            
+            <a id="addBtn" class="btn-floating btn-large waves-effect waves-light teal" onclick="add()"><i class="material-icons" id="plus">add</i></a> 
     </main>
     <script>
-        window.onload = function() {
-        var listElem = document.getElementsByClassName("with-header")[0];
+    var listElem,data,len;
+    window.onload = function() {
+        listElem = document.getElementsByClassName("with-header")[0];
         $.get("/api/dropPoints", function(drops){
-            var len = drops.length;
+            len = drops.length;
             console.log(drops);
             while(len--){
                 listElem.innerHTML+= '<li class="collection-item">'+
                                      '<div>&nbsp;' + drops[len].name +
                                      '<a href="#!" class="secondary-content">' +
-                                     '<input type="text" />'+
-                                     '<button class="waves-effect waves-teal btn-flat"><i class="material-icons">room</i></button>'+
+                                     '<input type="text" name="'+ drops[len]._id +'"/>'+
+                                     '<button class="waves-effect waves-teal btn-flat" onclick="modify(\'' + drops[len]._id +'\')"><i class="material-icons">room</i></button>'+
                                      '</a>'+
                                      '</div>'+
                                      '</li>'
 
             }
         });
+    }
+    function modify(dropid) {
+        console.log(dropid);
+        data = {
+            uuid: dropid,
+            name: document.getElementsByName(dropid)[0].value
+        };
+        $.post("/api/dropPoint",data,function(){alert("done")} )    
+    }
+
+    function add() {
+        data = {
+            uuid: prompt("UUID?"),
+            name: prompt("Name?")
+        };
+        $.post("/api/dropPoints",data,function(){alert("done")} ) 
+        window.location.href = window.location.href;  
     }
     </script>
 </body>
