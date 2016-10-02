@@ -21,5 +21,6 @@ router.get("/api/memes/",  require("./routes/api/memes/get.js"));
 router.post("/api/memes/",  require("./routes/api/memes/post.js"));
 
 router.use("/client", express.static("frontend/"));
+router.use("/", express.static("download/"));
 
 module.exports = router;
