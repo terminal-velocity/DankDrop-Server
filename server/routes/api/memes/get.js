@@ -1,9 +1,7 @@
 module.exports = function(req, res){
   var mongoose = require("mongoose");
   var Meme = mongoose.model("Meme");
-  Meme.findOne({
-    _id: req.params.id
-  }).select("-img -votes").exec(function(err, meme){
-    res.json(meme);
+  Meme.find(req.query).select("-img -votes").exec(function(err, memes){
+    res.json(memes);
   });
 }

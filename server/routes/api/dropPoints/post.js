@@ -7,7 +7,7 @@ module.exports = function(req, res) {
     var uuid = req.body.uuid || '';
 
     if (name == '' || uuid == '') {
-        res.status(401);
+        res.status(422);
         res.json({
             "message": "Need both name and UUID of drop-point"
         });
