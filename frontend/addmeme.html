@@ -1,0 +1,21 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <form action="/api/memes/" method="POST" enctype="multipart/form-data">
+    <select name="dropPoint">
+
+    </select>
+    <input type="text" name="name" />
+    <input type="file" name="meme" />
+    <input type="submit" />
+    <script>
+      $.get("/api/dropPoints", function(dropPoints){
+        for(var dropPoint in dropPoints){
+          $("select").append("<option value='"  + dropPoints[dropPoint].id + "'>" + dropPoints[dropPoint].name + "</option>")
+        }
+      })
+    </script>
+  </body>
+</html>
