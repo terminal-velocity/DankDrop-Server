@@ -78,3 +78,20 @@ main {
 	width:25px;
 	top:8px;
 }
+
+.btn-flat {
+	position:absolute;
+	width:140px;
+	left:280px;
+}
+
+#addBtn {
+	position: fixed;
+	right:30px;
+	bottom: 30px;
+}
+
+#plus {
+	width: 167px;
+    line-height: 40px;
+    }
