@@ -58,7 +58,11 @@
             uuid: dropid,
             name: document.getElementsByName(dropid)[0].value
         };
-        $.post("/api/dropPoint",data,function(){alert("done")} )    
+        $.ajax({
+           url: '/api/dropPoint/'+dropid,
+           type: 'PUT',
+           data: data
+        });   
     }
 
     function add() {
