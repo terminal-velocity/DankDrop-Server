@@ -11,6 +11,7 @@ router.post("/api/dropPoints/", require("./routes/api/dropPoints/post.js"));
 
 // Meme routes
 router.get("/api/meme/:id/",  require("./routes/api/meme/get.js"));
+router.delete("/api/meme/:id/",  require("./routes/api/meme/delete.js"));
 router.get("/api/meme/:id/img",  require("./routes/api/meme/img/get.js"));
 
 // Memes routes
