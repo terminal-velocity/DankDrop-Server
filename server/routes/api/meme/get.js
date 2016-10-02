@@ -4,9 +4,6 @@ module.exports = function(req, res){
   Meme.findOne({
     _id: req.params.id
   }, function(err, meme){
-    for(var meme in memes){
-      memes[meme].img = null;
-    }
     res.json(meme);
   });
 }
