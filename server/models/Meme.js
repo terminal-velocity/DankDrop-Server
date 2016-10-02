@@ -13,17 +13,34 @@ var memeSchema = new mongoose.Schema({
     type: String
   },
   votes: [Number],
-  computedScore: Number,
   dropPoint: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "DropPoint"
   }
+},
+{
+  toObject: {
+    virtuals: true
+  },
+  toJSON: {
+    virtuals: true
+  }
 });
 
 memeSchema
-.virtual('votes.average')
-.get(function () {
-  return this.votes.reduce(function(a, b){return a + b}) / this.votes.length;
+.virtual("computedScore")
+.get(function(){
+  if(this.votes){
+    if(this.votes.length){
+      return (this.votes.reduce(function(a, b){return a + b}) / this.votes.length) / 4;
+    }
+    else{
+      return 0;
+    }
+  }
+  else{
+    return 0;
+  }
 });
 
 module.exports = mongoose.model("Meme", memeSchema);

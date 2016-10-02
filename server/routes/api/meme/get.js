@@ -3,7 +3,7 @@ module.exports = function(req, res){
   var Meme = mongoose.model("Meme");
   Meme.findOne({
     _id: req.params.id
-  }).select("-img -votes").exec(function(err, meme){
+  }, function(err, meme){
     res.json(meme);
   });
 }

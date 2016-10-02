@@ -13,6 +13,7 @@ router.post("/api/dropPoints/", require("./routes/api/dropPoints/post.js"));
 router.get("/api/meme/:id/",  require("./routes/api/meme/get.js"));
 router.delete("/api/meme/:id/",  require("./routes/api/meme/delete.js"));
 router.get("/api/meme/:id/img",  require("./routes/api/meme/img/get.js"));
+router.post("/api/meme/:id/vote",  require("./routes/api/meme/vote/post.js"));
 
 // Memes routes
 router.get("/api/memes/",  require("./routes/api/memes/get.js"));

@@ -7,7 +7,8 @@ module.exports = function(req, res) {
       img: {
         data: req.file.buffer,
         mime: req.file.mimetype
-      }
+      },
+      dropPoint: req.body.dropPoint
     });
     newMeme.save(function(){
       res.sendStatus(200);
