@@ -3,9 +3,15 @@ var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 
 var app = express();
+var io;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(function(req, res, next){
+    req.io = io;
+    next();
+})
 
 app.use("/", require("./routes.js"));
 
@@ -19,3 +25,5 @@ require("./models");
 var server = app.listen(process.env.Port || 5000, function(){
   console.log("Running on port " + server.address().port);
 });
+
+io = require("socket.io").listen(server);

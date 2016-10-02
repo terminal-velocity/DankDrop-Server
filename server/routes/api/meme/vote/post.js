@@ -8,6 +8,7 @@ module.exports = function(req, res){
       }},
       function(err, votes) {
           if (!err){
+              req.io.emit("voted");
               res.sendStatus(200);
           }  else {
               res.sendStatus(500);
