@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+
+    <link rel="stylesheet" href="style.css" />
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    <nav class="teal darken-4">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">DankDrop</a>
+            <input type="search" name="search" id="searchbox" />
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="./map">Where da meeemz @?</a></li>
+                <li><a href="./memes">Get all da m3m3s</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+    
+    </main>
+    <script>
+    window.onLoad = function() {
+        var mainElem = document.getElementsByTagName("main")[0];
+        $.get("/api/memes", function(memes){
+            var len = memes.length;
+            while(len--){
+                mainElem.innerHTML+= '<div class="card">'+
+                                     '<div class="card-image">'+
+                                     '<img src="/api/meme/' + memes[len]._id+'/img" />'+
+                                     '</div>' +
+                                     '<div class="card-action">'+
+                                     '<span class="card-title">'+ meme.name + '</span>' +
+                                     '<a href="#">De1337 m3m3</a>'+
+                                     '</div>'+
+                                     '</div>'
+
+            }
+        });
+    }
+    </script>
+</body>
+
+</html>

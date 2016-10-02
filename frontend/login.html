@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+
+    <link rel="stylesheet" href="style.css" />
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    <nav class="teal darken-4">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">DankDrop</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="./login">Log in</a></li>
+                <li><a href="./map">Where da meeemz @?</a></li>
+                <li><a href="./memes">Get all da m3m3s</a></li>
+            </ul>
+        </div>
+    </nav>
+    <script src="script.js"></script>
+    <main>
+        <div id="loginCard" class="card large teal darken-3">
+            <div class="card-content white-text">
+                <span class="card-title">Login</span>
+                <p>Login 2 ur accoont 2 get all da maymayz.</p>
+                <input type="text" name="username" placeholder="Username" />
+                <input type="password" name="password" placeholder="Password" />
+            </div>
+            <div class="card-action">
+                <a onclick="login()">Login</a>
+                <a onclick="signup()">Sign up</a>
+            </div>
+        </div>
+        <div id="signupCard" class="card large teal darken-3">
+            <div class="card-content white-text">
+                <span class="card-title">Sign up</span>
+                <p>Sine up 4 accoont 2 get all da meemayz.</p>
+                <input type="text" name="username" placeholder="Username" />
+                <input type="text" name="email" placeholder="Email Address" />
+                <input type="password" name="password" placeholder="Password" />
+                <input type="password" name="passwordconf" placeholder="Password Confirm" />
+
+            </div>
+            <div class="card-action">
+                <a onclick="signup()">Sign up</a>
+            </div>
+        </div>
+        <script>
+            function signup() {
+                document.getElementById('loginCard').style.display = 'none';
+                document.getElementById('signupCard').style.display = "block";
+            }
+        </script>
+    </main>
+</body>
+
+</html>

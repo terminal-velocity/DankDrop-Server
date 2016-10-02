@@ -1,0 +1,80 @@
+html,body {
+	height:100%;
+	width:100%;
+	margin:0;
+	border:0;
+	padding:0;
+	font-family:Sans-serif;
+	background-color:#eeeeee;
+	text-align:center;
+}
+
+nav {
+	padding-left:15px;
+	position: fixed;
+	z-index:999;
+}
+
+main {
+	padding-top:70px;
+}
+
+.card {
+	width:600px;
+	margin:0 auto;
+}
+
+.card-title {
+	position:absolute;
+	left:15px;
+	bottom:10px;
+}
+
+.card-action {
+	height:60px;
+}
+
+.card-action a {
+	color:red !important;
+	font-size: 20px;
+	font-weight:900;
+	position:absolute;
+	right:15px;
+	bottom:15px;
+}
+
+.brand-logo {
+	left:0px !important;
+}
+
+.nav-wrapper input[type=search] {
+	position:fixed;
+	width:40vw;
+	left:0;
+	right:0;
+	margin: 0 auto;
+}
+
+.secondary-content {
+	width:300px;
+	transform: translateY(-10px);
+	height:30px;
+}
+
+.collection {
+	text-align:left;
+	text-indent: 5em;
+}
+.secondary-content input {
+	display:inline-block;
+	margin:-1px;
+	width:200px;
+	transform: translateY(-5px);
+}
+
+.material-icons {
+	position:relative;
+	left:-56px;
+	width:25px;
+	top:8px;
+}
