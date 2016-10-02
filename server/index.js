@@ -4,7 +4,7 @@ var bodyParser = require("body-parser");
 
 var app = express();
 
-app.use(require("morgan"));
+app.use(require("morgan")("default"));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
