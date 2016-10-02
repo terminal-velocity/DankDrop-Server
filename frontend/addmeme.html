@@ -13,7 +13,7 @@
     <script>
       $.get("/api/dropPoints", function(dropPoints){
         for(var dropPoint in dropPoints){
-          $("select").append("<option value='"  + dropPoints[dropPoint].id + "'>" + dropPoints[dropPoint].name + "</option>")
+          $("select").append("<option value='"  + dropPoints[dropPoint]._id + "'>" + dropPoints[dropPoint].name + "</option>")
         }
       })
     </script>
