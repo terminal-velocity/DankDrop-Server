@@ -28,11 +28,11 @@ var memeSchema = new mongoose.Schema({
 });
 
 memeSchema
-.virtual('computedScore')
+.virtual("computedScore")
 .get(function(){
   if(this.votes){
     if(this.votes.length){
-      return this.votes.reduce(function(a, b){return a + b}) / this.votes.length;
+      return (this.votes.reduce(function(a, b){return a + b}) / this.votes.length) / 4;
     }
     else{
       return 0;
