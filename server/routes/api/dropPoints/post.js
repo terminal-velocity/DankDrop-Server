@@ -9,7 +9,6 @@ module.exports = function(req, res) {
     if (name == '' || uuid == '') {
         res.status(401);
         res.json({
-            "status": 401,
             "message": "Need both name and UUID of drop-point"
         });
     }
