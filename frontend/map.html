@@ -20,8 +20,8 @@
         <div class="nav-wrapper">
             <a href="#" class="brand-logo">DankDrop</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="./map">Where da meeemz @?</a></li>
-                <li><a href="./memes">Get all da m3m3s</a></li>
+                <li><a href="./map.html">Where da meeemz @?</a></li>
+                <li><a href="./memes.html">Get all da m3m3s</a></li>
             </ul>
         </div>
     </nav>
@@ -29,36 +29,26 @@
     <main>
       <ul class="collection with-header">
         <li class="collection-header"><h4>Meme Locations</h4></li>
-
-        <li class="collection-item">
-        <div>Location 1
-        <a href="#!" class="secondary-content">
-        <input type="text" />
-        <i class="material-icons">room</i>
-        </a>
-        </div>
-        </li>
       </ul>
             
     </main>
     <script>
         window.onload = function() {
-        var mainElem = document.getElementsByTagName("main")[0];
+        var listElem = document.getElementsByClassName("with-header")[0];
         $.get("/api/dropPoints", function(drops){
             var len = drops.length;
             console.log(drops);
-            /*while(len--){
-                mainElem.innerHTML+= '<div class="card">'+
-                                     '<div class="card-image">'+
-                                     '<img src="/api/meme/' + memes[len]._id+'/img" />'+
-                                     '</div>' +
-                                     '<div class="card-action">'+
-                                     '<span class="card-title">'+ memes[len].name + '</span>' +
-                                     '<a href="#">De1337 m3m3</a>'+
+            while(len--){
+                listElem.innerHTML+= '<li class="collection-item">'+
+                                     '<div>&nbsp;' + drops[len].name +
+                                     '<a href="#!" class="secondary-content">' +
+                                     '<input type="text" />'+
+                                     '<i class="material-icons">room</i>' +
+                                     '</a>'+
                                      '</div>'+
-                                     '</div>'
+                                     '</li>'
 
-            }*/
+            }
         });
     }
     </script>
