@@ -1,14 +1,18 @@
 module.exports = function(req, res){
   var Meme = require("mongoose").model("Meme");
-  Meme.findOne({
-    _id: req.params.id
-  }, function(err, meme){
-    if(!meme.votes){
-      meme.votes = [];
-    }
-    meme.votes.push(req.body.rating);
-    meme.save(function(){
-      res.sendStatus(200);
-    });
-  })
+
+  Meme.findByIdAndUpdate(
+      req.params.id,
+      {$push: {
+          "votes": req.body.rating
+      }},
+      function(err, votes) {
+          if (!err){
+              res.sendStatus(200);
+          }  else {
+              res.sendStatus(500);
+          }
+      }
+  );
+
 }

@@ -4,6 +4,7 @@ var router = express.Router();
 
 // DropPoint routes
 router.get("/api/dropPoint/:id/", require("./routes/api/dropPoint/get.js"));
+router.put("/api/dropPoint/:id/", require("./routes/api/dropPoint/put.js"))
 
 // DropPoints routes
 router.get("/api/dropPoints/", require("./routes/api/dropPoints/get.js"));

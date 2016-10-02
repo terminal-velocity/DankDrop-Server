@@ -12,7 +12,10 @@ var memeSchema = new mongoose.Schema({
   name: {
     type: String
   },
-  votes: [Number],
+  votes: {
+      type: [Number],
+      default: []
+  },
   dropPoint: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "DropPoint"
